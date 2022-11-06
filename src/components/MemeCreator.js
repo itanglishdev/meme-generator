@@ -1,3 +1,5 @@
+import {GrImage } from 'react-icons/gr'
+
 function MemeCreator() {
     return ( 
         <div className="meme-box">
@@ -8,7 +10,7 @@ function MemeCreator() {
                 <input type="text" />
             </section>
             <section className="meme-box__bottom">
-                <button>Get a new Image (icon)</button>
+                <button className='background-colour '>Get a new Image <GrImage/></button>
             </section>
         </div>
      );

@@ -7,11 +7,10 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-        <div>
+        <div className='meme'>
           <MemeCreator/>
           <MemeImage/>
         </div>
-      MEME
     </div>
   );
 }

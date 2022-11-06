@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    color: white;
+    margin: 0;
+    font-family: 'Inter';
+}
+
+h2 {
+    font-family:   sans-serif;
+}
+.header {
+    gap: 20px;
+}
+
+.background-colour {
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+}
+
+.flex__horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar {
+    padding: 20px;
+    background-color: rgb(126, 44, 188);
+    /* max-width: 780px; */
+}
+.navbar .p__navbar {
+    font-size: 1rem;
+    font-weight: 600;
+}
+.meme {
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.meme-box{
+    /* display: flex; */
+    margin-bottom: 40px;
+    /* padding: 20px; */
+}
+
+input {
+    height: 30px;
+    border: 1px solid rgb(178, 175, 175);
+    /* margin: auto; */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    /* margin-left: 20px; */
+}
+
+input:last-child {
+    margin-left: 10px;
+}
+
+
+button {
+    height: 35px;
+    width: 400px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
