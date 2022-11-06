@@ -2,7 +2,9 @@
     box-sizing: border-box;
     color: white;
     margin: 0;
-    font-family: 'Inter';
+    /* font-family: 'Inter'; */
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS';
+
 }
 
 h2 {
@@ -30,6 +32,8 @@ h2 {
 .navbar .p__navbar {
     font-size: 1rem;
     font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+
 }
 .meme {
     margin: 40px;
@@ -61,7 +65,8 @@ input:last-child {
 button {
     height: 35px;
     width: 400px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
     letter-spacing: 1.2px;
 }
