@@ -69,10 +69,12 @@ input:last-child {
 } */
 
 button {
+    border: none;
+    border-radius: 5px;
     height: 35px;
     width: 390px;
     font-size: 1rem;
     font-weight: 700;
-    
+    cursor: pointer;
     letter-spacing: 1.2px;
 }
