@@ -51,22 +51,28 @@ h2 {
 input {
     height: 30px;
     border: 1px solid rgb(178, 175, 175);
-    /* margin: auto; */
     border-radius: 5px;
     margin-bottom: 20px;
-    /* margin-left: 20px; */
+    width: 190px;
+    font-family: 'Karla';
+    font-size: 0.9rem;
+    text-indent: 10px;
 }
 
 input:last-child {
     margin-left: 10px;
 }
-
+/* 
+.mem-box__bottom {
+    display: flex;
+    align-items: center;
+} */
 
 button {
     height: 35px;
-    width: 400px;
+    width: 390px;
     font-size: 1rem;
     font-weight: 700;
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    
     letter-spacing: 1.2px;
 }
