@@ -26,7 +26,7 @@ h2 {
 
 .navbar {
     padding: 20px;
-    background-color: rgb(126, 44, 188);
+    /* background-color: rgb(126, 44, 188); */
     /* max-width: 780px; */
 }
 .navbar .p__navbar {
@@ -43,7 +43,9 @@ h2 {
 }
 
 .meme-box{
-    /* display: flex; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 40px;
     /* padding: 20px; */
 }
@@ -77,4 +79,12 @@ button {
     font-weight: 700;
     cursor: pointer;
     letter-spacing: 1.2px;
+}
+.meme-box__image {
+    margin-top: 20px;
+    width: 500px;
+}
+
+.first-meme {
+    width: 500px; 
 }

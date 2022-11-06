@@ -2,7 +2,7 @@ import shutup from '../images/ShutUpAndTakeMyMoney.jpg'
 
 function MemeImage() {
     return ( 
-        <img src={shutup} width={'500px'} alt="" />
+        <img className='first-meme' src={shutup} alt="" />
      );
 }
 
