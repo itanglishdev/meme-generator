@@ -37,7 +37,7 @@ function MemeCreator() {
             <section className="meme-box__bottom">
                 <button onClick={changeMemeHandler} className='background-colour '>Get a new Image 🖼</button>
             </section>
-            <img className='meme-box__image' src={meme.randomImage} alt="" />
+            <img className='meme-box__image' src={meme.randomImage } alt="" />
         </div>
      );
 }
