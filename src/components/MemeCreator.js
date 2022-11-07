@@ -8,12 +8,22 @@ import {data} from '../memeData'
 function MemeCreator() {
     
     
-    const [meme, setMeme] = useState('')
-    const [memeImage, setMemeImage] = useState(randomMeme)
+    // const [meme, setMeme] = useState('')
+
+    const [meme, setMeme] = useState({
+        topText:'',
+        bottomText: '',
+        randomImage: ''
+    })
+
+    const [allMemeImages, setAllMemeImages] = useState(data)
 
     function changeMemeHandler() {
+
+        setMeme(prev => ({
+            ...prev,
+            randomImage: randomMeme}))
         console.log('clicked!');
-        setMeme(prev => [...prev,memeImage])
     }
 
     return ( 
@@ -27,7 +37,7 @@ function MemeCreator() {
             <section className="meme-box__bottom">
                 <button onClick={changeMemeHandler} className='background-colour '>Get a new Image 🖼</button>
             </section>
-            <img className='meme-box__image' src={meme} alt="" />
+            <img className='meme-box__image' src={meme.randomImage} alt="" />
         </div>
      );
 }
