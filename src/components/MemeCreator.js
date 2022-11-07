@@ -1,52 +1,68 @@
 import { useState } from 'react';
 import {data} from '../memeData'
 
-    const randomPosition = Math.floor(Math.random() * data.data.memes.length)
-    const randomMeme = data.data.memes[randomPosition].url
-    // console.log(randomMeme,randomPosition, 'HERE')
+   
 
 function MemeCreator() {
-    
-    
-    // const [meme, setMeme] = useState('')
+
+    function getMemeImage(){
+        const randomPosition = Math.floor(Math.random() * data.data.memes.length)
+        const randomMeme = data.data.memes[randomPosition].url
+
+        setMeme(prev => ({
+            ...prev,
+            randomImage:randomMeme
+        }))
+    }
+
 
     const [meme, setMeme] = useState({
         topText:'',
         bottomText: '',
         randomImage: 'http://i.imgflip.com/1bij.jpg'
     })
+    function memeHandler(e){
+        // const randomPosition = Math.floor(Math.random() * data.data.memes.length)
+        // const randomMeme = data.data.memes[randomPosition].url
 
-    // const [allMemeImages, setAllMemeImages] = useState(data)
-
-    function changeMemeHandler() {
-
+        const {name,value} = e.target
         setMeme(prev => ({
             ...prev,
-            randomImage: randomMeme}))
-        console.log('clicked!');
+            [name]: value
+        }))
     }
 
     return ( 
         <div className="meme-box">
             <section className="meme-box__top">
-                <label htmlFor=""></label>
+                <label htmlFor="topText"></label>
                 <input 
                 type="text" 
                 placeholder='Top Text' 
+                name='topText'
+                value={meme.topText}
+                onChange={memeHandler}
                 />
-                <label htmlFor=""/>
+                <label htmlFor="bottomText"/>
                 <input 
                 type="text" 
                 placeholder='Bottom Text'
+                name='bottomText'
+                value={meme.bottomText}
+                onChange={memeHandler}
                 />
             </section>
             <section className="meme-box__bottom">
-                <button onClick={changeMemeHandler} className='background-colour '>Get a new Image 🖼</button>
+                <button onClick={getMemeImage} 
+                    className='background-colour'
+                    name='randomImage'>
+                    Get a new Image 🖼
+                </button>
             </section>
             <div className='meme-box__container flex'>
                 <img className='meme-box__image' src={meme.randomImage } alt="" />
-                <h2 className='meme-text top' >one does not simply</h2>
-                <h2 className='meme-text bottom' >walk into mordor</h2>
+                <h2 className='meme-text top' >{meme.topText}</h2>
+                <h2 className='meme-text bottom' >{meme.bottomText}</h2>
             </div>
         </div>
      );
