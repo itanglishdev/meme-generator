@@ -21,10 +21,7 @@ function MemeCreator() {
         bottomText: '',
         randomImage: 'http://i.imgflip.com/1bij.jpg'
     })
-    function memeHandler(e){
-        // const randomPosition = Math.floor(Math.random() * data.data.memes.length)
-        // const randomMeme = data.data.memes[randomPosition].url
-
+    function memeHandler(e){            
         const {name,value} = e.target
         setMeme(prev => ({
             ...prev,
