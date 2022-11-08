@@ -17,32 +17,37 @@ function MemeCreator() {
 
     
 
-    useEffect( ()=>{
-        async function fetchData() {
-            let response = await fetch("https://api.imgflip.com/get_memes")
-            const data = await response.json()
-            setMeme(data.data.memes)
-        console.log(data.data.memes);
-
-        }
-        fetchData()
-        console.log('RENDERED');
-    },[])
+    
+    const [memeData, setMemeData] = useState([])
 
     const [meme, setMeme] = useState({
         topText:'',
         bottomText: '',
         randomImage: ''
     })
-    // console.log(meme)
+    useEffect( ()=>{
+        async function fetchData() {
+            let response = await fetch("https://api.imgflip.com/get_memes")
+            const data = await response.json()
+        setMemeData(data.data.memes)
 
-    let randomMeme
+            return data
+        // console.log(data.data.memes);
+
+        }
+        fetchData()
+        console.log('RENDERED');
+    },[])
+
+    console.log(memeData, 'RERENDERED?')
+
+    let randomMeme = 0
 
     function newImageHandler(){
-        randomMeme = Math.floor(Math.random()* meme.length)
+        randomMeme = Math.floor(Math.random()* memeData.length)
         setMeme({
             ...meme,
-            randomImage:meme[randomMeme].url
+            randomImage:memeData[randomMeme].url
         })
         }
 
