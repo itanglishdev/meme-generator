@@ -1,27 +1,47 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {data} from '../memeData'
 
    
 
 function MemeCreator() {
 
-    function getMemeImage(){
-        const randomPosition = Math.floor(Math.random() * data.data.memes.length)
-        const randomMeme = data.data.memes[randomPosition].url
+    // function getMemeImage(){
+    //     const randomPosition = Math.floor(Math.random() * data.data.memes.length)
+    //     const randomMeme = data.data.memes[randomPosition].url
 
-        setMeme(prev => ({
-            ...prev,
-            randomImage:randomMeme
-        }))
-    }
+    //     setMeme(prev => ({
+    //         ...prev,
+    //         randomImage:randomMeme
+    //     }))
+    // }
+    useEffect( ()=>{
+        async function fetchData() {
+            const response = await fetch("https://api.imgflip.com/get_memes")
+            const data = await response.json()
+            return data
+        }
+        fetchData()
+        console.log('RENDERED');
+        console.log(data);
+    },[])
+    
+
+    // let randomMeme
+
+    function newImageHandler(){
+        setMeme({
+            ...meme,
+            randomImage:data.data.memes[Math.floor(Math.random()* data.data.memes.length)].url
+        })
+        }
 
 
     const [meme, setMeme] = useState({
         topText:'',
         bottomText: '',
-        randomImage: 'http://i.imgflip.com/1bij.jpg'
+        randomImage: data.data.memes[Math.floor(Math.random()* data.data.memes.length)].url
     })
-    function memeHandler(e){            
+    function memeHandler(e){  
         const {name,value} = e.target
         setMeme(prev => ({
             ...prev,
@@ -50,7 +70,8 @@ function MemeCreator() {
                 />
             </section>
             <section className="meme-box__bottom">
-                <button onClick={getMemeImage} 
+                <button 
+                onClick={newImageHandler}
                     className='background-colour'
                     name='randomImage'>
                     Get a new Image 🖼
