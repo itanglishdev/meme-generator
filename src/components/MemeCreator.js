@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {data} from '../memeData'
+// import {data} from '../memeData'
 
    
 
@@ -14,33 +14,40 @@ function MemeCreator() {
     //         randomImage:randomMeme
     //     }))
     // }
+
+    
+
     useEffect( ()=>{
         async function fetchData() {
-            const response = await fetch("https://api.imgflip.com/get_memes")
+            let response = await fetch("https://api.imgflip.com/get_memes")
             const data = await response.json()
-            return data
+            setMeme(data.data.memes)
+        console.log(data.data.memes);
+
         }
         fetchData()
         console.log('RENDERED');
-        console.log(data);
     },[])
-    
-
-    // let randomMeme
-
-    function newImageHandler(){
-        setMeme({
-            ...meme,
-            randomImage:data.data.memes[Math.floor(Math.random()* data.data.memes.length)].url
-        })
-        }
-
 
     const [meme, setMeme] = useState({
         topText:'',
         bottomText: '',
-        randomImage: data.data.memes[Math.floor(Math.random()* data.data.memes.length)].url
+        randomImage: ''
     })
+    // console.log(meme)
+
+    let randomMeme
+
+    function newImageHandler(){
+        randomMeme = Math.floor(Math.random()* meme.length)
+        setMeme({
+            ...meme,
+            randomImage:meme[randomMeme].url
+        })
+        }
+
+
+    
     function memeHandler(e){  
         const {name,value} = e.target
         setMeme(prev => ({
