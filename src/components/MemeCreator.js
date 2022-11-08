@@ -1,23 +1,8 @@
 import { useEffect, useState } from 'react';
 // import {data} from '../memeData'
 
-   
-
 function MemeCreator() {
 
-    // function getMemeImage(){
-    //     const randomPosition = Math.floor(Math.random() * data.data.memes.length)
-    //     const randomMeme = data.data.memes[randomPosition].url
-
-    //     setMeme(prev => ({
-    //         ...prev,
-    //         randomImage:randomMeme
-    //     }))
-    // }
-
-    
-
-    
     const [memeData, setMemeData] = useState([])
 
     const [meme, setMeme] = useState({
@@ -30,16 +15,11 @@ function MemeCreator() {
             let response = await fetch("https://api.imgflip.com/get_memes")
             const data = await response.json()
         setMemeData(data.data.memes)
-
-            return data
-        // console.log(data.data.memes);
-
+            // return data
         }
         fetchData()
-        console.log('RENDERED');
+        console.log('RENDERED useEffect');
     },[])
-
-    console.log(memeData, 'RERENDERED?')
 
     let randomMeme = 0
 
@@ -50,7 +30,7 @@ function MemeCreator() {
             randomImage:memeData[randomMeme].url
         })
         }
-
+        console.log('rendered useSTATE')
 
     
     function memeHandler(e){  
